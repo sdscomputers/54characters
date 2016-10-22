@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022203839) do
+ActiveRecord::Schema.define(version: 20161022204630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,17 @@ ActiveRecord::Schema.define(version: 20161022203839) do
     t.datetime "updated_at",                    null: false
     t.integer  "max_beds",          default: 0, null: false
     t.integer  "client_bed_count",  default: 0, null: false
+  end
+
+  create_table "referrals", force: :cascade do |t|
+    t.integer  "referring_organization_id"
+    t.integer  "referred_organization_id"
+    t.integer  "client_id"
+    t.integer  "reffered_by_id"
+    t.boolean  "confirmed_by_referred_organization"
+    t.string   "status"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|
