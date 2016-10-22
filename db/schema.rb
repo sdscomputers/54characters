@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022052002) do
+ActiveRecord::Schema.define(version: 20161022055147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20161022052002) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "client_military_conflicts", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "military_conflict_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string   "first_name"
     t.string   "middle_name"
@@ -31,8 +38,12 @@ ActiveRecord::Schema.define(version: 20161022052002) do
     t.integer  "birthday_quality"
     t.string   "ss_number"
     t.boolean  "veteran"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "gender"
+    t.string   "service_branch"
+    t.date     "service_start_date"
+    t.date     "service_end_date"
   end
 
   create_table "ethnicities", force: :cascade do |t|
@@ -42,15 +53,10 @@ ActiveRecord::Schema.define(version: 20161022052002) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "organizations", force: :cascade do |t|
-    t.string   "organization_name"
-    t.string   "address"
+  create_table "military_conflicts", force: :cascade do |t|
     t.string   "description"
-    t.string   "email"
-    t.string   "phone"
-    t.boolean  "active"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
