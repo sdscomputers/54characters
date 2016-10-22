@@ -2,37 +2,21 @@
 
 <h1>Organizations</h1>
 
-<table class="table" id="organizations-table">
-  <thead>
-    <tr>
-      <th data-sort="string">Name</th>
-      <th data-sort="string">Description</th>
-      <th data-sort="string">Address</th>
-      <th data-sort="string">Phone</th>
-      <th data-sort="string">Email</th>
-      <th data-sort="string">Actions</th>
-      <th data-sort="boolean">Active</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organizations.each do |organization| %>
-    <tr>
-      <td><%= organization.organization_name %></td>
-      <td><%= organization.description %></td>
-      <td><%= organization.address %></td>
-      <td><%= organization.phone %></td>
-      <td><%= organization.email %></td>
-      <td data-label="Actions">
-        <%= link_to 'Show', organization, class: "btn" %>
-        <%= link_to 'Edit', edit_organization_path(organization), class: "btn" %>
-        <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
-      </td>
-      <td><%= organization.active %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @organizations.each do |o| %>
+  <div class="col-md-12">
+    <div class="col-md-6" style="padding-bottom:5px"><img src="http://placehold.it/350x150"></div>
+    <div class="col-md-6">
+      <div class="col-md-12"><%= o.organization_name %></div>
+      <hr>
+      <div class="col-md-12"><%= o.description %></div>
+    </div>
+  </div>
+  <div class="col-md-12 text-right">
+    <%= link_to 'Show', o, class: "btn" %>
+    <%= link_to 'Edit', edit_organization_path(o), class: "btn" %>
+    <%= link_to 'Destroy', o, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+  </div>
+<% end %>
 
 <br>
 

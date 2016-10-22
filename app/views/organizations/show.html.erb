@@ -1,4 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<div>
+  <div class="col-md-6"><%= @organization.organization_name %></div>
+  <div class="col-md-6"><%= @organization.description %></div>
+  <div class="col-md-6"><%= @organization.address %></div>
+  <div class="col-md-6"><%= @organization.email %></div>
+  <div class="col-md-6"><%= @organization.phone %></div>
+  <div class="col-md-6"><%= @organization.max_beds %></div>
+  <div class="col-md-6"><%= @organization.client_bed_count %></div>
+  <div class="col-md-6"><%= @organization.active %></div>
+</div>
+<%= link_to 'Edit', edit_organization_path(@organization), class: "btn" %> |
+<%= link_to 'Back', organizations_path, class: "btn" %>
