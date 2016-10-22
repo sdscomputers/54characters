@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :clients do
+    get '/search', to: 'client_search#new', as: :search, on: :collection
+    post '/search', to: 'client_search#create', on: :collection
+  end
+
   resources :organizations
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
