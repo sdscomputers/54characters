@@ -1,0 +1,22 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Birthday</th>
+      <th>Social Security Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% clients.each do |client| %>
+      <tr>
+        <td><%= client.full_name %></td>
+        <td><%= l(client.birthday, format: :nice) %></td>
+        <th><%= client.ss_number %></th>
+        <th>
+          
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
