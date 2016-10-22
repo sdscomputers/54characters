@@ -2,15 +2,71 @@
   <p id="notice"><%= notice %></p>
 </div>
 
-<div>
-  <div class="col-md-6"><%= @organization.organization_name %></div>
-  <div class="col-md-6"><%= @organization.description %></div>
-  <div class="col-md-6"><%= @organization.address %></div>
-  <div class="col-md-6"><%= @organization.email %></div>
-  <div class="col-md-6"><%= @organization.phone %></div>
-  <div class="col-md-6"><%= @organization.max_beds %></div>
-  <div class="col-md-6"><%= @organization.client_bed_count %></div>
-  <div class="col-md-6"><%= @organization.active %></div>
-</div>
-<%= link_to 'Edit', edit_organization_path(@organization), class: "btn" %> |
-<%= link_to 'Back', organizations_path, class: "btn" %>
+<div id="organization_detail">
+  <div class="col-md-12"><%= @organization.organization_name %></div>
+  <div class="col-md-12"><%= @organization.address %></div>
+  <div class="col-md-12"><%= @organization.email %></div>
+  <div class="col-md-12"><%= @organization.phone %></div>
+  <div class="col-md-12"><%= @organization.max_beds %></div>
+  <div class="col-md-12"><%= @organization.client_bed_count %></div>
+  <div class="col-md-12"><%= @organization.active %></div>
+  <div class="col-md-12"><%= @organization.description %></div>
+<% @organizations.each do |o| %>
+
+<% end %>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-earphone">
+          </span><%=  %></a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div class="col-xs-12 column">
+            <form class="form-horizontal">
+
+              <div class="control-group">
+                <label class="control-label" for="relation">Type</label>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <select id="CommId" name="CommId" class="form-control">
+                  <option value="20">BB Pin</option><option value="15">Courier</option><option value="10">eFax</option><option value="4">Email</option><option value="17">Facebook</option><option value="3">Fax</option><option value="21">GTalk</option><option value="6" selected="">Mobile</option><option value="11">MSN ID</option><option value="5">Pager</option><option value="1">Phone</option><option value="16">Post</option><option value="9">Resi. Phone</option><option value="14">Skype ID</option><option value="8">TeleFax</option><option value="2">Tlx</option><option value="19">Toll Free No.</option><option value="18">Twitter</option><option value="13">Voicemail</option><option value="7">Website</option><option value="12">Yahoo ID</option>
+
+                </select>
+
+              </div>
+
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                <input id="CommValue" name="CommValue" type="text" class="form-control" placeholder="Mobile no, Phone no ,email ....">
+              </div>
+
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <input id="commremarks" name="commremarks" type="text" class="form-control" placeholder="associated contact  ....">
+              </div>
+
+
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <div class="col-md-6"><%= @organization.organization_name %></div>
+        <div class="col-md-6"><%= @organization.description %></div>
+        <div class="col-md-6"><%= @organization.address %></div>
+        <div class="col-md-6"><%= @organization.email %></div>
+        <div class="col-md-6"><%= @organization.phone %></div>
+        <div class="col-md-6"><%= @organization.max_beds %></div>
+        <div class="col-md-6"><%= @organization.client_bed_count %></div>
+        <div class="col-md-6"><%= @organization.active %></div>
+      </div>
+
+      <%= link_to 'Edit', edit_organization_path(@organization), class: "btn" %> |
+      <%= link_to 'Back', organizations_path, class: "btn" %>
