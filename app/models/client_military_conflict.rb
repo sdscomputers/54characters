@@ -1,0 +1,2 @@
+class ClientMilitaryConflict < ApplicationRecord
+end

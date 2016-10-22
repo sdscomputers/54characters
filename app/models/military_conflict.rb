@@ -1,0 +1,2 @@
+class MilitaryConflict < ApplicationRecord
+end
