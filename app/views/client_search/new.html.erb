@@ -1,0 +1,14 @@
+<h2>Client Search</h2>
+<div class="well col-md-12">
+  <%= form_tag search_clients_path, remote: true do -%>
+    <div class="form-group">
+      <%= label_tag :search, 'Search', class: 'control-label' %>
+      <%= text_field_tag :search, '', placeholder: 'Search', class: 'form-control' %>
+    </div>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</div>
+
+<div id="search-results">
+  <h3>Submit A Search to display results</h3>
+</div>
