@@ -17,6 +17,7 @@ module HudImporter
                                ss_number: row[5], veteran: row[17],
                                gender: get_gender(row[15]))
         create_ethnicity_records(row, client.id)
+        create_military_records(row, client.id) if client.veteran
       end
     end
 
@@ -29,6 +30,15 @@ module HudImporter
       ClientEthnicity.create(client_id: client_id, ethnicity_id: 4) if row[12] == "1"
       ClientEthnicity.create(client_id: client_id, ethnicity_id: 5) if row[13] == "1"
       ClientEthnicity.create(client_id: client_id, ethnicity_id: 6) if row[14] == "1"
+    end
+
+    def create_military_records(row, client_id)
+      ClientMilitaryConflict.create(client_id: client_id, military_conflict_id: 1) if row[19] == '1'
+      ClientMilitaryConflict.create(client_id: client_id, military_conflict_id: 2) if row[20] == '1'
+      ClientMilitaryConflict.create(client_id: client_id, military_conflict_id: 3) if row[21] == '1'
+      ClientMilitaryConflict.create(client_id: client_id, military_conflict_id: 4) if row[22] == '1'
+      ClientMilitaryConflict.create(client_id: client_id, military_conflict_id: 5) if row[23] == '1'
+      ClientMilitaryConflict.create(client_id: client_id, military_conflict_id: 6) if row[24] == '1'
     end
 
     def get_gender(gender)
