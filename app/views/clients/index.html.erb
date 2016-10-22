@@ -1,0 +1,24 @@
+<h2>Client List</h2>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Birthday</th>
+      <th>Social Security Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.full_name %></td>
+        <td><%= l(client.birthday, format: :nice) if client.birthday %></td>
+        <td><%= client.ss_number %></td>
+        <td>
+          <%= link_to 'View Profile', client_path(client.id), class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

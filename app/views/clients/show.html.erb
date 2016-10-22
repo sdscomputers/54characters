@@ -1,0 +1,7 @@
+<h2><%= @client.full_name %></h2>
+<% if @client.birthday %>
+  <p><em>DOB:</em> <%= l(@client.birthday, format: :nice) %></p>
+<% end %>
+
+<p><em>Social Security #:</em><%= @client.ss_number %></p>
+<p><em>Veteran:</em> <%= @client.veteran %></p>
