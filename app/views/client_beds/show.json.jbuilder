@@ -1,0 +1,1 @@
+json.partial! "client_beds/client_bed", client_bed: @client_bed

@@ -1,0 +1,1 @@
+json.array! @client_beds, partial: 'client_beds/client_bed', as: :client_bed
