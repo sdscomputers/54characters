@@ -3,5 +3,5 @@ class ClientBed < ApplicationRecord
   validates :organization_id, presence: true, uniqueness: { scope: :client_id }
 
   belongs_to :client
-  belongs_to :organization
+  belongs_to :organization, counter_cache: :client_bed_count
 end
