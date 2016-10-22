@@ -1,0 +1,2 @@
+class ClientEthnicity < ApplicationRecord
+end
