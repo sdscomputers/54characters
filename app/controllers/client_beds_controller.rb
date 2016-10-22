@@ -14,7 +14,7 @@ class ClientBedsController < ApplicationController
 
   # GET /client_beds/new
   def new
-    @client_bed = ClientBed.new
+    @client_bed = ClientBed.new(client_id: params[:client_id])
   end
 
   # GET /client_beds/1/edit
@@ -69,6 +69,6 @@ class ClientBedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_bed_params
-      params.fetch(:client_bed, {})
+      params.require(:client_bed).permit(:client_id, :organization_id)
     end
 end

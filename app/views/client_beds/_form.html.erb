@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  <%= f.hidden_field :client_id %>
+  <%= f.collection_select :organization_id, Organization.all, :id, :organization_name, prompt: true %>
 
   <div class="actions">
     <%= f.submit %>
