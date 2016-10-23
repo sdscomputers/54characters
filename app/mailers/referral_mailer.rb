@@ -20,4 +20,9 @@ class ReferralMailer < ApplicationMailer
     @referral = Referral.find(referral_id)
     mail(to: 'organizationb@gmail.com', subject: '54 Characters - No Response')
   end
+
+  def referal_complete_notification(referral_id)
+    @referral = Referral.find(referral_id)
+    mail(to: 'organizationb@gmail.com', subject: '54 Characters - Referral Complete')
+  end
 end
