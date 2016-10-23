@@ -15,10 +15,30 @@
     <p class="lead">Learn about opportunities in STL.</p>
     <p>Contact a CoC today to get enrolled!</p>
   </div>
+
   <div class="row marketing">
-    
+    <% @organizations.first(6).in_groups_of(3).each do |group| %>
+      <div class="col-lg-6">
+        <% group.each do |item| %>
+          <% unless item.nil?  %>
+            <%= link_to organization_path(item.id) do %>
+            <div class="item">
+              <h4><%= item.organization_name if item %></h4>
+              <p>
+                <%= "Available Beds".html_safe if item %>
+                <%= item.client_bed_count if item %>
+              </p>
+            </div>
+          <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <hr>
-  <footer class="footer">
-    <a href="http://www.sdscomputers.com"><p>&copy; 2016 System Development Services, Inc.</p></a>
-  </footer>
+
+  <%= link_to "View All Organizations", organizations_path, style: "margin-bottom:10px;margin-top:10px", class: "btn btn-primary" %>
+</div>
+
+<footer class="footer">
+  <a href="http://www.sdscomputers.com"><p>&copy; 2016 System Development Services, Inc.</p></a>
+</footer>
