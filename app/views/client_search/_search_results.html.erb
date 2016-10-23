@@ -14,7 +14,7 @@
         <td><%= l(client.birthday, format: :nice) %></td>
         <th><%= client.ss_number %></th>
         <th>
-          
+          <%= link_to 'Refer', new_referral_path(client_id: client.id), class: 'btn btn-primary' %>
         </th>
       </tr>
     <% end %>

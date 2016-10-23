@@ -1,0 +1,24 @@
+<h2>Referrals</h2>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Client Name</th>
+      <th>Referring Organization</th>
+      <th>Referred Organization</th>
+      <th>Time Ago</th>
+      <th>Actions</th>
+    </tr>
+    <% @referrals.each do |referral| %>
+      <tr>
+        <td><%= referral.client.full_name %></td>
+        <td><%= referral.reffering_organization.organization_name %></td>
+        <td><%= referral.referred_organization.organization_name %></td>
+        <td><%= time_ago_in_words(referral.created_at) %></td>
+        <td>
+          <%= link_to 'Complete', complete_referral_path(referral.id), class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </thead>
+</table>

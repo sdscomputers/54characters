@@ -1,0 +1,8 @@
+<h2>Confirm Referal for <%= @referral.client.full_name %></h2>
+<%= form_for @referral, url: complete_referral_path(@referral.id) do |f| %>
+  <div class="form-group">
+    <%= f.label :status, 'Status', class: 'control-label' %>
+    <%= f.select :status, options_for_select([['Accept', 'A'], ['Decline', 'D']]), { }, { class: 'form-control' } %>
+  </div>
+  <%= f.submit 'Confirm' %>
+<% end %>

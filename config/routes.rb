@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   resources :referrals do
-    get '/complete', to: 'confirm_referrals#edit', as: :complete
-    patch '/complete', to: 'confirm_referrals#update'
+    get '/complete', to: 'confirm_referrals#edit', on: :member
+    patch '/complete', to: 'confirm_referrals#update', on: :member
   end
 
   resources :clients do
