@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "52 Characters", root_path, class: 'navbar-brand'  %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" class="active"><%= link_to "Home", root_path  %></li>
+        <li role="presentation"><%= link_to "Clients", clients_path %></li>
+        <li role="presentation"><%= link_to "Organizations", organizations_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
