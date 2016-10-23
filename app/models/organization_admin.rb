@@ -1,0 +1,2 @@
+class OrganizationAdmin < ApplicationRecord
+end
