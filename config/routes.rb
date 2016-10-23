@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post '/search', to: 'client_search#create', on: :collection
   end
 
+  resources :housing
   resources :organizations
 
   devise_for :users

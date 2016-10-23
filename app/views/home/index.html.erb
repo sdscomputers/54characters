@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active"><%= link_to "Home", root_path  %></li>
+        <li role="presentation"><%= link_to "Clients", clients_path %></li>
+        <li role="presentation"><%= link_to "Organizations", organizations_path %></li>
+        <li role="presentation"><%= link_to "Housing", housing_index_path %></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">54 Characters</h3>
+  </div>
+  <div class="jumbotron">
+    <h1>Housing Opportunities!</h1>
+    <p class="lead">Learn about opportunities in STL.</p>
+    <p>Contact a CoC today to get enrolled!</p>
+  </div>
+
+  <div class="row marketing">
+    <% @organizations.first(6).in_groups_of(3).each do |group| %>
+      <div class="col-lg-6">
+        <% group.each do |item| %>
+          <% unless item.nil?  %>
+            <%= link_to organization_path(item.id) do %>
+            <div class="item">
+              <h4><%= item.organization_name if item %></h4>
+              <p>
+                <%= "Available Beds".html_safe if item %>
+                <%= item.client_bed_count if item %>
+              </p>
+            </div>
+          <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "View All Organizations", organizations_path, style: "margin-bottom:10px;margin-top:10px", class: "btn btn-primary" %>
+</div>
+
+<footer class="footer">
+  <a href="http://www.sdscomputers.com"><p>&copy; 2016 System Development Services, Inc.</p></a>
+</footer>
