@@ -32,8 +32,13 @@
           <%= tinymce %>
         </div>
         <div class="form-group">
-          <%= f.label :phone, 'Phone', :class => 'control-label' %>
-          <%= f.text_field :phone, :class => 'tinymce form-control', :disabled => true, :autofocus => true %>
+          <%= f.label :max_beds, 'Beds Capacity', :class => 'control-label' %>
+          <%= f.text_field :max_beds, :class => 'tinymce form-control', :disabled => true, :autofocus => true %>
+          <%= tinymce %>
+        </div>
+        <div class="form-group">
+          <%= f.label :client_bed_count, 'Beds Available', :class => 'control-label' %>
+          <%= f.text_field :client_bed_count, :class => 'tinymce form-control', :disabled => true, :autofocus => true %>
           <%= tinymce %>
         </div>
         <div class="checkbox col-lg-12"><label><%= f.check_box :active %> Active</label></div>

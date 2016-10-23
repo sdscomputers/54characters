@@ -1,0 +1,18 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Organization Name</th>
+      <th>Bed Capacity</th>
+      <th>Beds Available</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.organization_name %></td>
+        <td><%= organization.max_beds %></td>
+        <td><%= organization.client_bed_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
