@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022174653) do
+ActiveRecord::Schema.define(version: 20161022204630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161022174653) do
     t.string   "service_branch"
     t.date     "service_start_date"
     t.date     "service_end_date"
+    t.string   "phone_number"
   end
 
   create_table "ethnicities", force: :cascade do |t|
@@ -66,6 +67,13 @@ ActiveRecord::Schema.define(version: 20161022174653) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "organization_admins", force: :cascade do |t|
+    t.integer  "organzation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "organization_name"
     t.string   "address"
@@ -77,6 +85,17 @@ ActiveRecord::Schema.define(version: 20161022174653) do
     t.datetime "updated_at",                    null: false
     t.integer  "max_beds",          default: 0, null: false
     t.integer  "client_bed_count",  default: 0, null: false
+  end
+
+  create_table "referrals", force: :cascade do |t|
+    t.integer  "referring_organization_id"
+    t.integer  "referred_organization_id"
+    t.integer  "client_id"
+    t.integer  "reffered_by_id"
+    t.boolean  "confirmed_by_referred_organization"
+    t.string   "status"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|

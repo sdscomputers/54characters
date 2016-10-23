@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root to: 'home#index'
+  resources :referrals do
+    get '/complete', to: 'confirm_referrals#edit', on: :member
+    patch '/complete', to: 'confirm_referrals#update', on: :member
+  end
 
   resources :clients do
     get '/search', to: 'client_search#new', as: :search, on: :collection
@@ -9,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :housing
   resources :organizations
+
   devise_for :users
+
   resources :client do
     resources :client_beds, as: :beds
   end

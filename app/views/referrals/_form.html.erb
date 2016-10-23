@@ -1,0 +1,13 @@
+<%= form_for @referral do  |f| %>
+  <%= f.hidden_field :client_id, value: params[:client_id] %>
+  <%= f.hidden_field :reffered_by_id, value: current_user.id %>
+  <div class="form-group">
+    <%= f.label :referring_organization_id, 'Referring Organization', class: 'control-label' %>
+    <%= f.collection_select :referring_organization_id, Organization.all, :id, :organization_name, {}, { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :referred_organization_id, 'Referred Organization', class: 'control-label' %>
+    <%= f.collection_select :referred_organization_id, Organization.all, :id, :organization_name, {}, { class: 'form-control' } %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
