@@ -18,16 +18,18 @@
 
   <div class="row marketing">
     <% @organizations.first(6).in_groups_of(3).each do |group| %>
-      <div class="col-lg-6">
+      <div class="col-md-12">
         <% group.each do |item| %>
           <% unless item.nil?  %>
             <%= link_to organization_path(item.id) do %>
-            <div class="item">
-              <h4><%= item.organization_name if item %></h4>
-              <p>
-                <%= "Available Beds".html_safe if item %>
-                <%= item.client_bed_count if item %>
-              </p>
+            <div class="item well row">
+              <div class="left-box col-md-4">
+                <h3>Available Beds: <%= item.client_bed_count %></h3>
+              </div>
+              <div class="right-box col-md-8">
+                <h4><%= item.organization_name %></h4>
+                <p><%= item.description %></p>
+              </div>
             </div>
           <% end %>
           <% end %>
@@ -40,5 +42,5 @@
 </div>
 
 <footer class="footer">
-  <a href="http://www.sdscomputers.com"><p>&copy; 2016 System Development Services, Inc.</p></a>
+  <a href="http://www.sdscomputers.com"><p>&copy; 2016 The Lunatic Nerds</p></a>
 </footer>
